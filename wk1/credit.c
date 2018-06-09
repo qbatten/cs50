@@ -36,11 +36,11 @@ int main(void)
 
     // Load the number into an array of digits.
     // We want the digits to go forward, so this loop needs to go backwards.
-    // 	 1. I know there's a better way to do this than using numLength to tell the program when to stop reading from the array, but you cant 
-    //	initialize an array using a variable and we haven't dug into memory stuff yet.
-    //	 2. I start it at 1 (which isn't what you're supposed to do, right?) because I do a bunch of loops that count down and the alternative 
-    //	    would be to make numLength smaller than it really is, which seems weird too. Not sure what the right answer is here, will think a bit 
-    //	    more and come back.
+    //1. I know there's a better way to do this than using numLength to tell the program when to stop reading from the array, but you cant
+    //	 initialize an array using a variable and we haven't dug into memory stuff yet.
+    //2. I start it at 1 (which isn't what you're supposed to do, right?) because I do a bunch of loops that count down and the alternative
+    //	 would be to make numLength smaller than it really is, which seems weird too. Not sure what the right answer is here, will think a bit
+    //	 more and come back.
     int digits[16];
     long long numConv = num;
     for (int i = numLength; i > 0; i--)
@@ -53,22 +53,22 @@ int main(void)
     //CHECK 2: initial digits & assign cardtype
     if (numLength == 15 && digits[1] == 3 && (digits[2] == 4 || digits[2] == 7)) //
     {
-    	//Amex numbers are 15 digits long and start w 24 or 27
-        cardType = 1; 
+    //Amex numbers are 15 digits long and start w 24 or 27
+        cardType = 1;
     }
     else if (numLength == 16 && digits[1] == 5 && digits[2] > 0 && digits[2] < 6)
     {
-    	//Mastercard numbers are 16 digits and start w 51, 52, 53, 54, or 55
+	//Mastercard numbers are 16 digits and start w 51, 52, 53, 54, or 55
         cardType = 2;
     }
     else if ((numLength == 13 || numLength == 16) && digits[1] == 4)
     {
-    	//Visa numbers are 13 or 16 digits and start w 4
+    //Visa numbers are 13 or 16 digits and start w 4
         cardType = 3;
     }
     else
     {
-    	//If it doesn't fit those criteria, it's not valid!
+    //If it doesn't fit those criteria, it's not valid!
         printf("INVALID\n");
         exit(0);
     }
