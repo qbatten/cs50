@@ -41,7 +41,7 @@ int main(void)
     //2. I start it at 1 (which isn't what you're supposed to do, right?) because I do a bunch of loops that count down and the alternative
     //	 would be to make numLength smaller than it really is, which seems weird too. Not sure what the right answer is here, will think a bit
     //	 more and come back.
-    int digits[16];
+    int digits[16] = {0};
     long long numConv = num;
     for (int i = numLength; i > 0; i--)
     {
