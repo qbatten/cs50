@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            {% for i in range(s2|length) %}
+            <td>
+                <strong>{{s2[i]}}</strong>
+            </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            {% for i in range(matrix[0]|length) %}
+            <td>
+                <strong>{{i}}</strong>
+            </td>
+            {% endfor %}
+        </tr>
+    </thead>
+        {% for i in range(s2|length + 1) %}
+        <tr>
+            <td>
+                {% if i < 1 %}
+                {% else %}
+                <strong>{{s1[i-1]}}</strong>
+                {% endif %}
+            </td>
+            <td>
+                <strong>{{i}}</strong>
+            </td>
+            {% for j in range(matrix[0]|length) %}
+            <td>
+                {{matrix[i][j][0]}}
+            </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

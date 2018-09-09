@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Hello, {{username}}! Here's a summary of your currently-held positions and cash.
+    </h1>
+    <h3>
+        Total Portfolio Value (stocks + cash): {{totalvalue}}
+    </h3>
+    <h3>
+        Cash: {{cash}}
+    </h3>
+    <h3>
+        Stocks:
+    </h3>
+    <table class="table table-sm">
+        {% for i in range(stocks|length) %}
+            <tr>
+                {% for j in range(stocks[0]|length) %}
+                <td>{{stocks[i][j]}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Shares
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+             <select class="selectpicker form-control" name="symbol" >
+                 {% for i in range(stocks|length) %}
+                  <option value="{{stocks[i]["symbol"]}}">{{stocks[i]["symbol"]}}</option>
+                  {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Number of Shares" type="text"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell Shares</button>
+    </form>
+{% endblock %}
